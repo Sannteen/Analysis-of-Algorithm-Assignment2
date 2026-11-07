@@ -1,0 +1,27 @@
+
+# Ignore all compiled Java files
+*.class
+
+# Ignore generated build folders
+out/
+target/
+build/
+
+# Ignore IntelliJ IDEA configuration
+.idea/
+*.iml
+
+# Ignore VS Code configuration
+.vscode/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Existing IntelliJ exclusions
+/shelf/
+/workspace.xml
+/httpRequests/
+/queries/
+/dataSources/
+/dataSources.local.xml

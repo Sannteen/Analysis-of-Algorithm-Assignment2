@@ -1,5 +1,16 @@
+/**
+ * Job.java
+ * 
+ * This represents a computational job which would be submitterd to the resource allocation scheduler
+ * 
+ *  Each job would contain an identifier, profit, execution duration, and a permitted starting-time window.
+ * 
+ * the class also provides a method which calculate profit density, which is used by the greedy scheduling algorithm
+ * 
+ */
 
-public class job {
+
+public class Job {
 
     // Properties of a computational job
     private String id;
@@ -9,9 +20,10 @@ public class job {
     private int latestStart;
 
     // Constructor
-    public job(String id, int profit, int duration,
+    public Job(String id, int profit, int duration,
             int earliestStart, int latestStart) {
-
+                
+                // Validate the job properties before creating the object
         if (id == null || id.isBlank()
                 || profit < 0 || duration <= 0
                 || earliestStart < 0
@@ -49,18 +61,19 @@ public class job {
     }
 
     // Calculate profit earned per hour
+    // Profit density is used as the priority metric in the greedy scheduling algorithm. Formula is Profit Density = Profit / Duration
     public double getProfitDensity() {
         return (double) profit / duration;
     }
 
     @Override
     public String toString() {
-        return "job " + id
+        return "Job " + id
                 + " | Profit: $" + profit
                 + " | Duration: " + duration + " hours"
                 + " | Start Window: "
                 + earliestStart + "-" + latestStart
-                + " | Density: "
+                + " | Profit Density: "
                 + String.format("%.2f", getProfitDensity());
     }
 }
